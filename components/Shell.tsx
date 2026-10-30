@@ -10,20 +10,21 @@ export default function Shell({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-dvh flex flex-col">
-      <div className="border-b border-[color:var(--border)] bg-[color:var(--muted-bg,transparent)]">
-        <div className="mx-auto w-full max-w-3xl px-4 py-2 text-xs text-[color:var(--muted)] flex items-center justify-between gap-3">
-          <span>Demo version — your data stays in your browser.</span>
-          <a
-            href="https://github.com/RachelElizabethW90/idea-bank-demo#readme"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline hover:text-[color:var(--foreground)] whitespace-nowrap"
-          >
-            What is this?
-          </a>
+      <div className="sticky top-0 z-10 bg-[color:var(--background)]/90 backdrop-blur">
+        <div className="border-b border-[color:var(--border)]">
+          <div className="mx-auto w-full max-w-3xl px-4 py-2 text-xs text-[color:var(--muted)] flex items-center justify-between gap-3">
+            <span>Demo version — your data stays in your browser.</span>
+            <a
+              href="https://github.com/RachelElizabethW90/idea-bank-demo#readme"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-[color:var(--foreground)] whitespace-nowrap"
+            >
+              What is this?
+            </a>
+          </div>
         </div>
-      </div>
-      <header className="sticky top-0 z-10 bg-[color:var(--background)]/90 backdrop-blur border-b border-[color:var(--border)]">
+        <header className="border-b border-[color:var(--border)]">
         <div className="mx-auto w-full max-w-3xl px-4 py-3 flex items-center justify-between">
           <Link
             href="/"
@@ -41,6 +42,7 @@ export default function Shell({ children }: { children: ReactNode }) {
           </nav>
         </div>
       </header>
+      </div>
       <main className="flex-1 mx-auto w-full max-w-3xl px-4 pb-24 pt-4">
         {children}
       </main>
