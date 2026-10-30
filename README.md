@@ -4,6 +4,8 @@ A tiny app for capturing content ideas and the brain-dump context behind each on
 
 **[Live demo →](https://idea-bank-demo.vercel.app)**
 
+![Idea Bank main list, showing the sticky demo banner, header, and four idea cards with status, hearts, format, series, and pain-point chips](docs/hero.png)
+
 This is a public demo. Your data stays in your browser (localStorage); nothing is sent to a server.
 
 ---
