@@ -2,7 +2,7 @@
 
 A tiny app for capturing content ideas and the brain-dump context behind each one. Phone-first, one accent color, five screens, no more.
 
-**[Live demo →](#)** *(link added after Vercel deploy)*
+**[Live demo →](https://idea-bank-demo.vercel.app)**
 
 This is a public demo. Your data stays in your browser (localStorage); nothing is sent to a server.
 
@@ -67,6 +67,9 @@ npm run dev
 
 Clearing site data in your browser resets the demo to the five seed ideas.
 
-## Repo
+## Links
 
-Source: this repo. The real version of this app (with auth and a hosted database) lives privately.
+- Live demo: [idea-bank-demo.vercel.app](https://idea-bank-demo.vercel.app)
+- Source: [github.com/RachelElizabethW90/idea-bank-demo](https://github.com/RachelElizabethW90/idea-bank-demo)
+
+The real version of this app (with auth and a hosted database) lives privately.
