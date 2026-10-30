@@ -18,17 +18,17 @@ I wanted one place to capture both: the title in one tap, and the brain dump tha
 
 I wrote the full product spec before any code was written: the problem, who it's for, the screens, the single data model, the explicit "don't build" list. Then I handed the spec to Claude Code and worked as the PM/designer while it implemented.
 
-The spec is the thing that made the project shippable in a weekend. Features were cut on paper, not during review.
+The spec is the thing that made the project shippable in a week. Features were cut on paper, not during review.
 
 ## Key decisions and tradeoffs
 
 **One accent color, system fonts, no animations.** Phone-first and one-handed. The brief was "calm and plain," so every decision that would add visual noise lost by default. One forest-green accent, system fonts, generous whitespace.
 
-**Four screens, hard cap.** Main list, paste a capture, idea detail, settings. The real app adds a sign-in screen; this demo skips auth and keeps data in your browser. Anything that needed another screen got cut, not added.
+**Five screens in the full app, four in this demo.** The spec capped it at five: sign in, main list, paste a capture, idea detail, settings. This demo omits sign in (data stays in your browser), so you see four. Anything that needed another screen got cut, not added.
 
 **localStorage first, auth later.** Milestone 1 shipped as a single-user, browser-local app. The data layer sits behind a small storage interface so swapping to a hosted database later doesn't touch any UI code. This demo is that Milestone 1.
 
-**Email + password over magic links.** Magic links break inside iPhone home-screen apps (they open in Safari and lose the app session). Password + Keychain autofill is lower-friction in practice than it sounds, and it works offline.
+**Email + password over magic links.** Magic links break inside iPhone home-screen apps (they open in Safari and lose the app session). Password + Keychain autofill is lower-friction in practice than it sounds.
 
 **Paste-driven capture.** The capture flow is: brain-dump in an AI chat, ask the AI to format the result, paste the whole thing into one text box. One field, one tap. No required fields on new ideas except a title. Everything else is parsed from the paste if present, or stays blank.
 
@@ -43,6 +43,12 @@ The spec is the thing that made the project shippable in a weekend. Features wer
 - **Custom theming, illustrations, fancy UI.** Every styling choice got pushed toward "calm and plain."
 
 The guiding rule from the spec: *if a feature doesn't serve "one easy place to capture every idea and find it later, from laptop or phone," don't build it.*
+
+## What I caught in review
+
+- **Security gaps in the database plan, before build.** The proposed schema included a view that would have exposed all data to anyone holding the public API key, plus incomplete row-level access policies. I flagged both and we rewrote the plan before any code touched the database.
+- **A sign-in flow that would have broken on iPhone.** The initial plan was magic-link email. Those links open in Safari, not the installed home-screen app, so the session is lost on return. Caught it in the spec review and switched to email + password before writing a line of auth code.
+- **A pivot when a free-tier rule changed mid-build.** Supabase changed its free-tier email rules during the auth milestone, which would have required a rate-limited SMTP workaround for the planned OTP flow. I chose email + password over the workaround and we kept moving.
 
 ## Built with Claude Code, from my spec
 
