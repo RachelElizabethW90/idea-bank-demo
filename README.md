@@ -1,6 +1,6 @@
 # Idea Bank — Demo
 
-A tiny app for capturing content ideas and the brain-dump context behind each one. Phone-first, one accent color, five screens, no more.
+A tiny app for capturing content ideas and the brain-dump context behind each one. Phone-first, one accent color, four screens, no more.
 
 **[Live demo →](https://idea-bank-demo.vercel.app)**
 
@@ -16,7 +16,7 @@ I wanted one place to capture both: the title in one tap, and the brain dump tha
 
 ## My approach: spec before code
 
-I wrote the full product spec before any code was written: the problem, who it's for, the five screens, the single data model, the explicit "don't build" list. Then I handed the spec to Claude Code and worked as the PM/designer while it implemented.
+I wrote the full product spec before any code was written: the problem, who it's for, the screens, the single data model, the explicit "don't build" list. Then I handed the spec to Claude Code and worked as the PM/designer while it implemented.
 
 The spec is the thing that made the project shippable in a weekend. Features were cut on paper, not during review.
 
@@ -24,7 +24,7 @@ The spec is the thing that made the project shippable in a weekend. Features wer
 
 **One accent color, system fonts, no animations.** Phone-first and one-handed. The brief was "calm and plain," so every decision that would add visual noise lost by default. One forest-green accent, system fonts, generous whitespace.
 
-**Five screens, hard cap.** Sign in, main list, paste a capture, idea detail, settings. Anything that needed a sixth screen got cut, not added.
+**Four screens, hard cap.** Main list, paste a capture, idea detail, settings. The real app adds a sign-in screen; this demo skips auth and keeps data in your browser. Anything that needed another screen got cut, not added.
 
 **localStorage first, auth later.** Milestone 1 shipped as a single-user, browser-local app. The data layer sits behind a small storage interface so swapping to a hosted database later doesn't touch any UI code. This demo is that Milestone 1.
 
